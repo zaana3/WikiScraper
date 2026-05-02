@@ -1,0 +1,5 @@
+wiki_output/
+*.xlsx
+*.log
+progress.json
+__pycache__/
