@@ -16,7 +16,6 @@ init(autoreset=True)
 
 # ── KONFIGURACJA ───────────────────────────────────────────────────────────
 CONFIG = {
-    # Oficjalne API Wikimedia – bez rejestracji, bez limitu dla botów
     "API_URL":          "https://pl.wikipedia.org/w/api.php",
 
     # Wydajność – zgodnie z polityką Wikimedia:
@@ -37,11 +36,9 @@ CONFIG = {
     "CHECKPOINT_PREFIX": "wiki_output/checkpoint_",
     "FINAL_FILE":        "wiki_output/WIKIPEDIA_PL_",
 
-    # Namespace 0 = artykuły encyklopedyczne (bez meta-stron, dyskusji itp.)
     "NAMESPACE":         0,
 }
 
-# Oficjalny User-Agent wg polityki Wikimedia (WYMAGANY dla botów)
 HEADERS = {
     "User-Agent": (
         "WikiScraper/1.0 (https://github.com/zanae; damian@example.com) "
@@ -90,7 +87,7 @@ class ProgressManager:
                 pass
         return {
             "start_time":    datetime.now().isoformat(),
-            "apcontinue":    None,   # Token paginacji Wikipedia allpages
+            "apcontinue":    None,   
             "pobrano":       0,
             "bledow":        0,
             "checkpointy":   [],
@@ -114,8 +111,8 @@ def parsuj_artykul(dane: Dict) -> Dict:
         "url":              None,
         "dlugosc_bajtow":   None,
         "liczba_slow":      None,
-        "opis_krotki":      None,    # Wikidata short description
-        "tresc_skrot":      None,    # Pierwsze 1000 znaków tekstu
+        "opis_krotki":      None,    
+        "tresc_skrot":      None,    
         "sekcje":           None,    # Lista sekcji (nagłówki)
         "kategorie":        None,    # Lista kategorii
         "linki_wewn":       None,    # Liczba linków wewnętrznych
